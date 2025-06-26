@@ -1,0 +1,67 @@
+group: global_mmlu_full_asia
+task:
+  - global_mmlu_full_bn_stem
+  - global_mmlu_full_bn_humanities
+  - global_mmlu_full_bn_social_sciences
+  - global_mmlu_full_bn_other
+  - global_mmlu_full_fa_stem
+  - global_mmlu_full_fa_humanities
+  - global_mmlu_full_fa_social_sciences
+  - global_mmlu_full_fa_other
+  - global_mmlu_full_fil_stem
+  - global_mmlu_full_fil_humanities
+  - global_mmlu_full_fil_social_sciences
+  - global_mmlu_full_fil_other
+  - global_mmlu_full_he_stem
+  - global_mmlu_full_he_humanities
+  - global_mmlu_full_he_social_sciences
+  - global_mmlu_full_he_other
+  - global_mmlu_full_hi_stem
+  - global_mmlu_full_hi_humanities
+  - global_mmlu_full_hi_social_sciences
+  - global_mmlu_full_hi_other
+  - global_mmlu_full_id_stem
+  - global_mmlu_full_id_humanities
+  - global_mmlu_full_id_social_sciences
+  - global_mmlu_full_id_other
+  - global_mmlu_full_ja_stem
+  - global_mmlu_full_ja_humanities
+  - global_mmlu_full_ja_social_sciences
+  - global_mmlu_full_ja_other
+  - global_mmlu_full_ko_stem
+  - global_mmlu_full_ko_humanities
+  - global_mmlu_full_ko_social_sciences
+  - global_mmlu_full_ko_other
+  - global_mmlu_full_ky_stem
+  - global_mmlu_full_ky_humanities
+  - global_mmlu_full_ky_social_sciences
+  - global_mmlu_full_ky_other
+  - global_mmlu_full_ms_stem
+  - global_mmlu_full_ms_humanities
+  - global_mmlu_full_ms_social_sciences
+  - global_mmlu_full_ms_other
+  - global_mmlu_full_ne_stem
+  - global_mmlu_full_ne_humanities
+  - global_mmlu_full_ne_social_sciences
+  - global_mmlu_full_ne_other
+  - global_mmlu_full_si_stem
+  - global_mmlu_full_si_humanities
+  - global_mmlu_full_si_social_sciences
+  - global_mmlu_full_si_other
+  - global_mmlu_full_te_stem
+  - global_mmlu_full_te_humanities
+  - global_mmlu_full_te_social_sciences
+  - global_mmlu_full_te_other
+  - global_mmlu_full_vi_stem
+  - global_mmlu_full_vi_humanities
+  - global_mmlu_full_vi_social_sciences
+  - global_mmlu_full_vi_other
+  - global_mmlu_full_zh_stem
+  - global_mmlu_full_zh_humanities
+  - global_mmlu_full_zh_social_sciences
+  - global_mmlu_full_zh_other
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 1.0

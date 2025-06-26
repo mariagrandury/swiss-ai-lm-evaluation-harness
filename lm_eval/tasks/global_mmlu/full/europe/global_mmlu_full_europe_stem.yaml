@@ -1,0 +1,24 @@
+group: global_mmlu_full_europe_stem
+task:
+  - global_mmlu_full_cs_stem
+  - global_mmlu_full_de_stem
+  - global_mmlu_full_el_stem
+  - global_mmlu_full_en_stem
+  - global_mmlu_full_es_stem
+  - global_mmlu_full_fr_stem
+  - global_mmlu_full_it_stem
+  - global_mmlu_full_lt_stem
+  - global_mmlu_full_nl_stem
+  - global_mmlu_full_pl_stem
+  - global_mmlu_full_pt_stem
+  - global_mmlu_full_ro_stem
+  - global_mmlu_full_ru_stem
+  - global_mmlu_full_sr_stem
+  - global_mmlu_full_sv_stem
+  - global_mmlu_full_tr_stem
+  - global_mmlu_full_uk_stem
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 1.0

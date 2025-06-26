@@ -1,0 +1,17 @@
+group: global_mmlu_full_africa_social_sciences
+task:
+  - global_mmlu_full_am_social_sciences
+  - global_mmlu_full_ar_social_sciences
+  - global_mmlu_full_ha_social_sciences
+  - global_mmlu_full_ig_social_sciences
+  - global_mmlu_full_mg_social_sciences
+  - global_mmlu_full_ny_social_sciences
+  - global_mmlu_full_sn_social_sciences
+  - global_mmlu_full_so_social_sciences
+  - global_mmlu_full_sw_social_sciences
+  - global_mmlu_full_yo_social_sciences
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 1.0

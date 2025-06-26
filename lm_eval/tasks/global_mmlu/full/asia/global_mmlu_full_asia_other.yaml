@@ -1,0 +1,22 @@
+group: global_mmlu_full_asia_other
+task:
+  - global_mmlu_full_bn_other
+  - global_mmlu_full_fa_other
+  - global_mmlu_full_fil_other
+  - global_mmlu_full_he_other
+  - global_mmlu_full_hi_other
+  - global_mmlu_full_id_other
+  - global_mmlu_full_ja_other
+  - global_mmlu_full_ko_other
+  - global_mmlu_full_ky_other
+  - global_mmlu_full_ms_other
+  - global_mmlu_full_ne_other
+  - global_mmlu_full_si_other
+  - global_mmlu_full_te_other
+  - global_mmlu_full_vi_other
+  - global_mmlu_full_zh_other
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 1.0

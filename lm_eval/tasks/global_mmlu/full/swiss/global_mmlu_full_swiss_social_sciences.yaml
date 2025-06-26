@@ -1,0 +1,10 @@
+group: global_mmlu_full_swiss_social_sciences
+task:
+  - global_mmlu_full_de_social_sciences
+  - global_mmlu_full_fr_social_sciences
+  - global_mmlu_full_it_social_sciences
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 1.0

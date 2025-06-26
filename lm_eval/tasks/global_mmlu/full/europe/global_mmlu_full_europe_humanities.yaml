@@ -1,0 +1,24 @@
+group: global_mmlu_full_europe_humanities
+task:
+  - global_mmlu_full_cs_humanities
+  - global_mmlu_full_de_humanities
+  - global_mmlu_full_el_humanities
+  - global_mmlu_full_en_humanities
+  - global_mmlu_full_es_humanities
+  - global_mmlu_full_fr_humanities
+  - global_mmlu_full_it_humanities
+  - global_mmlu_full_lt_humanities
+  - global_mmlu_full_nl_humanities
+  - global_mmlu_full_pl_humanities
+  - global_mmlu_full_pt_humanities
+  - global_mmlu_full_ro_humanities
+  - global_mmlu_full_ru_humanities
+  - global_mmlu_full_sr_humanities
+  - global_mmlu_full_sv_humanities
+  - global_mmlu_full_tr_humanities
+  - global_mmlu_full_uk_humanities
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True
+metadata:
+  version: 1.0
