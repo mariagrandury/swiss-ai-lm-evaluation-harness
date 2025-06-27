@@ -1,13 +1,6 @@
 TEST_MODEL_EN = "sshleifer/tiny-gpt2"
 TEST_MODEL_ES = "flax-community/gpt-2-spanish"
 
-FACTUAL_AGNOSTIC_KNOWLEDGE = [
-    "mmlu",
-    "global_mmlu_swiss",
-    "global_mmlu_europe",
-    "global_mmlu",
-    "global_mmlu_no_europe",
-]
 
 from lm_eval import evaluator
 
