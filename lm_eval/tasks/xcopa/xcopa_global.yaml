@@ -1,12 +1,8 @@
 group: xcopa_global
 task:
-  - xcopa_it
-  - xcopa_tr
-  - xcopa_id
-  - xcopa_ta
-  - xcopa_vi
-  - xcopa_zh
-  - xcopa_sw
+  - xcopa_europe
+  - xcopa_africa
+  - xcopa_asia
 aggregate_metric_list:
   - metric: acc
     aggregation: mean

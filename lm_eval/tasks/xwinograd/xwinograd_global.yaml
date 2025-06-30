@@ -1,10 +1,7 @@
 group: xwinograd_global
 task:
-  - xwinograd_en
-  - xwinograd_fr
-  - xwinograd_pt
-  - xwinograd_ru
-  - xwinograd_zh
+  - xwinograd_europe
+  - xwinograd_asia
 aggregate_metric_list:
   - metric: acc
     aggregation: mean

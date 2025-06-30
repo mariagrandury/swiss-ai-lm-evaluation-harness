@@ -1,8 +1,8 @@
-group: hellaswag_global
+group: global_mmlu_full_global
 task:
-  - hellaswag_europe
-  - hellaswag_africa
-  - hellaswag_asia
+  - global_mmlu_full_europe
+  - global_mmlu_full_africa
+  - global_mmlu_full_asia
 aggregate_metric_list:
   - metric: acc
     aggregation: mean

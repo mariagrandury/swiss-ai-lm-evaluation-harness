@@ -21,7 +21,12 @@ def detect_available_languages(config, language_groups, language_mapping):
     base_dir = Path(config["base_dir"])
     available = []
 
-    for lang in language_groups["global"]:
+    # Combine all languages from regional groups for detection
+    all_languages = set()
+    for group_langs in language_groups.values():
+        all_languages.update(group_langs)
+
+    for lang in all_languages:
         if config["has_subjects"]:
             # Tasks with subjects - check directory existence
             if config.get("use_full_language_names"):
@@ -135,6 +140,23 @@ def create_simple_group_file(config, group_name, available_languages, output_dir
     print(f"  Created {output_file}")
 
 
+def create_global_group_file(config, group_name, output_dir, created_regional_groups):
+    """Create global group file that references regional groups."""
+    group_id = config["group_pattern"].format(group=group_name)
+
+    # Only reference regional groups that were actually created
+    tasks = [
+        config["group_pattern"].format(group=region)
+        for region in created_regional_groups
+    ]
+
+    output_file = output_dir / f"{group_id}.yaml"
+    output_file.write_text(create_yaml_content(group_id, tasks))
+
+    regions_text = ", ".join(created_regional_groups)
+    print(f"  Created {output_file} (references: {regions_text})")
+
+
 def generate_groups_for_task(
     task_name, config, language_groups, selected_groups, language_mapping
 ):
@@ -155,7 +177,15 @@ def generate_groups_for_task(
     output_dir = Path(config["output_dir"])
     output_dir.mkdir(exist_ok=True)
 
+    # Track which regional groups are actually created
+    created_regional_groups = []
+
+    # First process all non-global groups
     for group_name in selected_groups:
+        if group_name == "global":
+            continue  # Handle global at the end
+
+        # Regular handling for other groups
         available = [
             lang for lang in language_groups[group_name] if lang in available_languages
         ]
@@ -175,6 +205,19 @@ def generate_groups_for_task(
         else:
             create_simple_group_file(config, group_name, available, output_dir)
 
+        # Track this regional group as created
+        if group_name in ["europe", "asia", "africa"]:
+            created_regional_groups.append(group_name)
+
+    # Handle global group if requested
+    if "global" in selected_groups:
+        if created_regional_groups:
+            create_global_group_file(
+                config, "global", output_dir, created_regional_groups
+            )
+        else:
+            print("No regional groups available for global group")
+
 
 def main():
     config_data = load_config()
@@ -191,11 +234,13 @@ def main():
         choices=task_choices,
         help="Task to generate groups for (or 'all' for all tasks)",
     )
+    # Available groups: language groups + special "global" group
+    available_groups = list(language_groups.keys()) + ["global"]
     parser.add_argument(
         "--groups",
         nargs="+",
-        choices=list(language_groups.keys()),
-        default=list(language_groups.keys()),
+        choices=available_groups,
+        default=available_groups,
         help="Language groups to generate (default: all)",
     )
 

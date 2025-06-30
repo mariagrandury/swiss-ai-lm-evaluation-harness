@@ -1,36 +1,8 @@
 group: arc_global
 task:
-  - arc_ca
-  - arc_da
-  - arc_de
-  - arc_es
-  - arc_eu
-  - arc_fr
-  - arc_hr
-  - arc_hu
-  - arc_it
-  - arc_nl
-  - arc_pt
-  - arc_ro
-  - arc_ru
-  - arc_sk
-  - arc_sr
-  - arc_sv
-  - arc_uk
-  - arc_ar
-  - arc_bn
-  - arc_gu
-  - arc_hi
-  - arc_hy
-  - arc_id
-  - arc_kn
-  - arc_ml
-  - arc_mr
-  - arc_ne
-  - arc_ta
-  - arc_te
-  - arc_vi
-  - arc_zh
+  - arc_europe
+  - arc_africa
+  - arc_asia
 aggregate_metric_list:
   - metric: acc
     aggregation: mean

@@ -1,17 +1,8 @@
 group: xnli_global
 task:
-  - xnli_de
-  - xnli_el
-  - xnli_en
-  - xnli_es
-  - xnli_fr
-  - xnli_ru
-  - xnli_tr
-  - xnli_ar
-  - xnli_hi
-  - xnli_vi
-  - xnli_zh
-  - xnli_sw
+  - xnli_europe
+  - xnli_africa
+  - xnli_asia
 aggregate_metric_list:
   - metric: acc
     aggregation: mean
