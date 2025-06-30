@@ -1,0 +1,25 @@
+group: include_base_44_asia_professional_certification
+task:
+  - include_base_44_bengali_professional_certification
+  - include_base_44_persian_professional_certification
+  - include_base_44_hindi_professional_certification
+  - include_base_44_indonesian_professional_certification
+  - include_base_44_japanese_professional_certification
+  - include_base_44_korean_professional_certification
+  - include_base_44_nepali_professional_certification
+  - include_base_44_chinese_professional_certification
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

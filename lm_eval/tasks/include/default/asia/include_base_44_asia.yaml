@@ -1,0 +1,28 @@
+group: include_base_44_asia
+task:
+  - include_base_44_asia_applied_science
+  - include_base_44_asia_arts_humanities
+  - include_base_44_asia_business_commerce
+  - include_base_44_asia_driving_license
+  - include_base_44_asia_general_knowledge
+  - include_base_44_asia_health_oriented_education
+  - include_base_44_asia_marine_license
+  - include_base_44_asia_medical_license
+  - include_base_44_asia_professional_certification
+  - include_base_44_asia_social_science
+  - include_base_44_asia_stem
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

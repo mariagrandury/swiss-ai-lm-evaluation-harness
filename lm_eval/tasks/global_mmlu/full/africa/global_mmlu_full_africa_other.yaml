@@ -1,0 +1,27 @@
+group: global_mmlu_full_africa_other
+task:
+  - global_mmlu_full_am_other
+  - global_mmlu_full_ar_other
+  - global_mmlu_full_ha_other
+  - global_mmlu_full_ig_other
+  - global_mmlu_full_mg_other
+  - global_mmlu_full_ny_other
+  - global_mmlu_full_sn_other
+  - global_mmlu_full_so_other
+  - global_mmlu_full_sw_other
+  - global_mmlu_full_yo_other
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

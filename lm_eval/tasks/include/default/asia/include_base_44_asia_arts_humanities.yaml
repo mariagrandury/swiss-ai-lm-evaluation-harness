@@ -1,0 +1,29 @@
+group: include_base_44_asia_arts_humanities
+task:
+  - include_base_44_arabic_arts_humanities
+  - include_base_44_bengali_arts_humanities
+  - include_base_44_persian_arts_humanities
+  - include_base_44_hebrew_arts_humanities
+  - include_base_44_hindi_arts_humanities
+  - include_base_44_armenian_arts_humanities
+  - include_base_44_indonesian_arts_humanities
+  - include_base_44_malayalam_arts_humanities
+  - include_base_44_malay_arts_humanities
+  - include_base_44_telugu_arts_humanities
+  - include_base_44_vietnamese_arts_humanities
+  - include_base_44_chinese_arts_humanities
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

@@ -1,0 +1,18 @@
+group: include_base_44_africa_driving_license
+task:
+  - include_base_44_arabic_driving_license
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

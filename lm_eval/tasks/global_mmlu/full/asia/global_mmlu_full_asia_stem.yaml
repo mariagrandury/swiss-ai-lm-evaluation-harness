@@ -1,0 +1,33 @@
+group: global_mmlu_full_asia_stem
+task:
+  - global_mmlu_full_ar_stem
+  - global_mmlu_full_bn_stem
+  - global_mmlu_full_fa_stem
+  - global_mmlu_full_fil_stem
+  - global_mmlu_full_he_stem
+  - global_mmlu_full_hi_stem
+  - global_mmlu_full_id_stem
+  - global_mmlu_full_ja_stem
+  - global_mmlu_full_ko_stem
+  - global_mmlu_full_ky_stem
+  - global_mmlu_full_ms_stem
+  - global_mmlu_full_ne_stem
+  - global_mmlu_full_si_stem
+  - global_mmlu_full_te_stem
+  - global_mmlu_full_vi_stem
+  - global_mmlu_full_zh_stem
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

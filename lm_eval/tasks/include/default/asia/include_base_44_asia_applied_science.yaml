@@ -1,0 +1,21 @@
+group: include_base_44_asia_applied_science
+task:
+  - include_base_44_hindi_applied_science
+  - include_base_44_indonesian_applied_science
+  - include_base_44_telugu_applied_science
+  - include_base_44_chinese_applied_science
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

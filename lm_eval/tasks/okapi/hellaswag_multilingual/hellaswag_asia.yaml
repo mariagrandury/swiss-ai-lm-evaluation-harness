@@ -1,0 +1,30 @@
+group: hellaswag_asia
+task:
+  - hellaswag_ar
+  - hellaswag_bn
+  - hellaswag_gu
+  - hellaswag_hi
+  - hellaswag_hy
+  - hellaswag_id
+  - hellaswag_kn
+  - hellaswag_ml
+  - hellaswag_mr
+  - hellaswag_ne
+  - hellaswag_ta
+  - hellaswag_te
+  - hellaswag_vi
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

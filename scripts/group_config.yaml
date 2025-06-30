@@ -32,6 +32,42 @@ language_groups:
     - tr  # Turkish
     - uk  # Ukrainian
 
+  africa:
+    - am  # Amharic
+    - ar  # Arabic
+    - ha  # Hausa
+    - ig  # Igbo
+    - mg  # Malagasy
+    - ny  # Chichewa/Nyanja
+    - sn  # Shona
+    - so  # Somali
+    - sw  # Swahili
+    - yo  # Yoruba
+
+  asia:
+    - ar  # Arabic
+    - bn  # Bengali
+    - fa  # Persian/Farsi
+    - fil # Filipino
+    - gu  # Gujarati
+    - he  # Hebrew
+    - hi  # Hindi
+    - hy  # Armenian
+    - id  # Indonesian
+    - ja  # Japanese
+    - kn  # Kannada
+    - ko  # Korean
+    - ky  # Kyrgyz
+    - ml  # Malayalam
+    - mr  # Marathi
+    - ms  # Malay
+    - ne  # Nepali
+    - si  # Sinhala
+    - ta  # Tamil
+    - te  # Telugu
+    - vi  # Vietnamese
+    - zh  # Chinese
+
   global:
     # European languages
     - ca

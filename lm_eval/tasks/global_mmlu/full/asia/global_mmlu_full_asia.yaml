@@ -1,0 +1,21 @@
+group: global_mmlu_full_asia
+task:
+  - global_mmlu_full_asia_stem
+  - global_mmlu_full_asia_humanities
+  - global_mmlu_full_asia_social_sciences
+  - global_mmlu_full_asia_other
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0
