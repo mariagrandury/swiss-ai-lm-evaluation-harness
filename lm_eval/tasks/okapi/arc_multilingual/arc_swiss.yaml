@@ -3,7 +3,6 @@ task:
   - arc_de
   - arc_fr
   - arc_it
-  - arc_ro
 aggregate_metric_list:
   - metric: acc
     aggregation: mean

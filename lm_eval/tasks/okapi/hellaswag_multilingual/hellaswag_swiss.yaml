@@ -3,7 +3,6 @@ task:
   - hellaswag_de
   - hellaswag_fr
   - hellaswag_it
-  - hellaswag_ro
 aggregate_metric_list:
   - metric: acc
     aggregation: mean

@@ -3,7 +3,6 @@ task:
   - global_mmlu_full_de_stem
   - global_mmlu_full_fr_stem
   - global_mmlu_full_it_stem
-  - global_mmlu_full_ro_stem
 aggregate_metric_list:
   - metric: acc
     aggregation: mean
