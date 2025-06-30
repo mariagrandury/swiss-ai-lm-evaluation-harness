@@ -89,31 +89,8 @@ metadata:
 """
 
 
-def main():
-    # Load configuration
-    config_data = load_config()
-    language_groups = config_data["language_groups"]
-    task_configs = config_data["tasks"]
-
-    parser = argparse.ArgumentParser(
-        description="Generate language group YAML files for evaluation tasks"
-    )
-    parser.add_argument(
-        "task", choices=list(task_configs.keys()), help="Task to generate groups for"
-    )
-    parser.add_argument(
-        "--groups",
-        nargs="+",
-        choices=list(language_groups.keys()),
-        default=list(language_groups.keys()),
-        help="Language groups to generate (default: all)",
-    )
-
-    args = parser.parse_args()
-
-    task_name = args.task
-    config = task_configs[task_name]
-
+def generate_groups_for_task(task_name, config, language_groups, selected_groups):
+    """Generate language groups for a specific task."""
     print(f"Generating language groups for task: {task_name}")
 
     # Detect available languages
@@ -130,7 +107,7 @@ def main():
     output_dir = Path(config["output_dir"])
     output_dir.mkdir(exist_ok=True)
 
-    for group_name in args.groups:
+    for group_name in selected_groups:
         languages = language_groups[group_name]
 
         # Filter to available languages only
@@ -172,6 +149,51 @@ def main():
                     create_group_yaml(task_name, config, group_name, available, subject)
                 )
                 print(f"  Created {subject_file}")
+
+
+def main():
+    # Load configuration
+    config_data = load_config()
+    language_groups = config_data["language_groups"]
+    task_configs = config_data["tasks"]
+
+    # Create choices list with all task names plus "all"
+    task_choices = list(task_configs.keys()) + ["all"]
+
+    parser = argparse.ArgumentParser(
+        description="Generate language group YAML files for evaluation tasks"
+    )
+    parser.add_argument(
+        "task",
+        choices=task_choices,
+        help="Task to generate groups for (or 'all' for all tasks)",
+    )
+    parser.add_argument(
+        "--groups",
+        nargs="+",
+        choices=list(language_groups.keys()),
+        default=list(language_groups.keys()),
+        help="Language groups to generate (default: all)",
+    )
+
+    args = parser.parse_args()
+
+    # Determine which tasks to run
+    if args.task == "all":
+        tasks_to_run = task_configs.keys()
+        print(f"Running all tasks: {', '.join(tasks_to_run)}")
+        print("=" * 80)
+    else:
+        tasks_to_run = [args.task]
+
+    # Run generation for each task
+    for task_name in tasks_to_run:
+        config = task_configs[task_name]
+        generate_groups_for_task(task_name, config, language_groups, args.groups)
+
+        # Add separator between tasks when running all
+        if args.task == "all" and task_name != list(tasks_to_run)[-1]:
+            print("\n" + "=" * 80 + "\n")
 
 
 if __name__ == "__main__":
