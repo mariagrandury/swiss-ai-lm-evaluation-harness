@@ -157,6 +157,23 @@ def create_global_group_file(config, group_name, output_dir, created_regional_gr
     print(f"  Created {output_file} (references: {regions_text})")
 
 
+def check_missing_languages(available_languages, language_groups):
+    """Check for available languages not included in any language group and print warnings."""
+    all_grouped_languages = set()
+    for group_langs in language_groups.values():
+        all_grouped_languages.update(group_langs)
+
+    missing_languages = set(available_languages) - all_grouped_languages
+    if missing_languages:
+        missing_sorted = sorted(missing_languages)
+        print(
+            f"⚠️  WARNING: Available languages not in any group: {', '.join(missing_sorted)}"
+        )
+        print(
+            "   Consider adding these languages to appropriate language groups in group_config.yaml"
+        )
+
+
 def generate_groups_for_task(
     task_name, config, language_groups, selected_groups, language_mapping
 ):
@@ -173,6 +190,9 @@ def generate_groups_for_task(
     if not available_languages:
         print(f"No available languages found for {task_name}")
         return
+
+    # Check for missing languages
+    check_missing_languages(available_languages, language_groups)
 
     output_dir = Path(config["output_dir"])
     output_dir.mkdir(exist_ok=True)
