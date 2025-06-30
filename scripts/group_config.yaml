@@ -1,0 +1,116 @@
+# Configuration file for language group generation
+
+# Common language groups used across all tasks
+language_groups:
+  swiss:
+    - de  # German
+    - fr  # French
+    - it  # Italian
+    - ro  # Romanian
+
+  europe:
+    - ca  # Catalan
+    - cs  # Czech
+    - da  # Danish
+    - de  # German
+    - el  # Greek
+    - en  # English
+    - es  # Spanish
+    - eu  # Basque
+    - fr  # French
+    - hr  # Croatian
+    - hu  # Hungarian
+    - it  # Italian
+    - lt  # Lithuanian
+    - nl  # Dutch
+    - pl  # Polish
+    - pt  # Portuguese
+    - ro  # Romanian
+    - ru  # Russian
+    - sk  # Slovak
+    - sr  # Serbian
+    - sv  # Swedish
+    - tr  # Turkish
+    - uk  # Ukrainian
+
+  global:
+    # European languages
+    - ca
+    - cs
+    - da
+    - de
+    - el
+    - en
+    - es
+    - eu
+    - fr
+    - hr
+    - hu
+    - it
+    - lt
+    - nl
+    - pl
+    - pt
+    - ro
+    - ru
+    - sk
+    - sr
+    - sv
+    - tr
+    - uk
+    # Asian languages
+    - ar  # Arabic
+    - bn  # Bengali
+    - fa  # Persian/Farsi
+    - fil # Filipino
+    - gu  # Gujarati
+    - he  # Hebrew
+    - hi  # Hindi
+    - hy  # Armenian
+    - id  # Indonesian
+    - ja  # Japanese
+    - kn  # Kannada
+    - ko  # Korean
+    - ky  # Kyrgyz
+    - ml  # Malayalam
+    - mr  # Marathi
+    - ms  # Malay
+    - ne  # Nepali
+    - si  # Sinhala
+    - ta  # Tamil
+    - te  # Telugu
+    - vi  # Vietnamese
+    - zh  # Chinese
+    # African languages
+    - am  # Amharic
+    - ha  # Hausa
+    - ig  # Igbo
+    - mg  # Malagasy
+    - ny  # Chichewa/Nyanja
+    - sn  # Shona
+    - so  # Somali
+    - sw  # Swahili
+    - yo  # Yoruba
+
+# Task configurations
+tasks:
+  global_mmlu:
+    base_dir: "lm_eval/tasks/global_mmlu/full"
+    output_dir: "lm_eval/tasks/global_mmlu/full"
+    task_pattern: "global_mmlu_full_{lang}"
+    subject_pattern: "global_mmlu_full_{lang}_{subject}"
+    group_pattern: "global_mmlu_full_{group}"
+    has_subjects: true
+    subjects:
+      - stem
+      - humanities
+      - social_sciences
+      - other
+
+  hellaswag:
+    base_dir: "lm_eval/tasks/okapi/hellaswag_multilingual"
+    output_dir: "lm_eval/tasks/hellaswag_groups"
+    task_pattern: "hellaswag_{lang}"
+    group_pattern: "hellaswag_{group}"
+    has_subjects: false
+    subjects: [] 

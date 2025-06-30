@@ -5,131 +5,33 @@ import argparse
 import os
 from pathlib import Path
 
-# Common language groups used across all tasks
-LANGUAGE_GROUPS = {
-    "swiss": ["de", "fr", "it", "ro"],
-    "europe": [
-        "ca",  # Catalan
-        "cs",  # Czech
-        "da",  # Danish
-        "de",  # German
-        "el",  # Greek
-        "en",  # English
-        "es",  # Spanish
-        "eu",  # Basque
-        "fr",  # French
-        "hr",  # Croatian
-        "hu",  # Hungarian
-        "it",  # Italian
-        "lt",  # Lithuanian
-        "nl",  # Dutch
-        "pl",  # Polish
-        "pt",  # Portuguese
-        "ro",  # Romanian
-        "ru",  # Russian
-        "sk",  # Slovak
-        "sr",  # Serbian
-        "sv",  # Swedish
-        "tr",  # Turkish
-        "uk",  # Ukrainian
-    ],
-    "global": [
-        # European languages
-        "ca",
-        "cs",
-        "da",
-        "de",
-        "el",
-        "en",
-        "es",
-        "eu",
-        "fr",
-        "hr",
-        "hu",
-        "it",
-        "lt",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sk",
-        "sr",
-        "sv",
-        "tr",
-        "uk",
-        # Asian languages
-        "ar",
-        "bn",
-        "fa",
-        "fil",
-        "gu",
-        "he",
-        "hi",
-        "hy",
-        "id",
-        "ja",
-        "kn",
-        "ko",
-        "ky",
-        "ml",
-        "mr",
-        "ms",
-        "ne",
-        "si",
-        "ta",
-        "te",
-        "vi",
-        "zh",
-        # African languages
-        "am",
-        "ha",
-        "ig",
-        "mg",
-        "ny",
-        "sn",
-        "so",
-        "sw",
-        "yo",
-    ],
-}
+import yaml
 
-SUBJECTS = ["stem", "humanities", "social_sciences", "other"]
-
-# Task configurations
-TASK_CONFIGS = {
-    "global_mmlu": {
-        "base_dir": "lm_eval/tasks/global_mmlu/full",
-        "output_dir": "lm_eval/tasks/global_mmlu/full",
-        "task_pattern": "global_mmlu_full_{lang}",
-        "subject_pattern": "global_mmlu_full_{lang}_{subject}",
-        "group_pattern": "global_mmlu_full_{group}",
-        "has_subjects": True,
-    },
-    "hellaswag": {
-        "base_dir": "lm_eval/tasks/okapi/hellaswag_multilingual",
-        "output_dir": "lm_eval/tasks/hellaswag_groups",
-        "task_pattern": "hellaswag_{lang}",
-        "group_pattern": "hellaswag_{group}",
-        "has_subjects": False,
-    },
-}
+# Get script directory to locate config file
+SCRIPT_DIR = Path(__file__).parent
+CONFIG_FILE = SCRIPT_DIR / "group_config.yaml"
 
 
-def detect_available_languages(task_name, config):
+def load_config():
+    """Load configuration from YAML file."""
+    with open(CONFIG_FILE, "r") as f:
+        return yaml.safe_load(f)
+
+
+def detect_available_languages(task_name, config, language_groups):
     """Detect which languages are available for a given task."""
     base_dir = Path(config["base_dir"])
     available_languages = []
 
     if config["has_subjects"]:
         # For tasks with subjects, check if language directories exist
-        for lang in LANGUAGE_GROUPS["global"]:
+        for lang in language_groups["global"]:
             lang_dir = base_dir / lang
             if lang_dir.exists() and lang_dir.is_dir():
                 available_languages.append(lang)
     else:
         # For tasks without subjects, check for individual task files
-        for lang in LANGUAGE_GROUPS["global"]:
+        for lang in language_groups["global"]:
             task_file = base_dir / f"{config['task_pattern'].format(lang=lang)}.yaml"
             if task_file.exists():
                 available_languages.append(lang)
@@ -156,7 +58,7 @@ def create_group_yaml(task_name, config, group_name, languages, subject=None):
         if config["has_subjects"]:
             # Reference subject groups
             tasks = []
-            for subj in SUBJECTS:
+            for subj in config["subjects"]:
                 tasks.append(
                     f"  - {config['group_pattern'].format(group=group_name)}_{subj}"
                 )
@@ -188,29 +90,34 @@ metadata:
 
 
 def main():
+    # Load configuration
+    config_data = load_config()
+    language_groups = config_data["language_groups"]
+    task_configs = config_data["tasks"]
+
     parser = argparse.ArgumentParser(
         description="Generate language group YAML files for evaluation tasks"
     )
     parser.add_argument(
-        "task", choices=list(TASK_CONFIGS.keys()), help="Task to generate groups for"
+        "task", choices=list(task_configs.keys()), help="Task to generate groups for"
     )
     parser.add_argument(
         "--groups",
         nargs="+",
-        choices=list(LANGUAGE_GROUPS.keys()),
-        default=list(LANGUAGE_GROUPS.keys()),
+        choices=list(language_groups.keys()),
+        default=list(language_groups.keys()),
         help="Language groups to generate (default: all)",
     )
 
     args = parser.parse_args()
 
     task_name = args.task
-    config = TASK_CONFIGS[task_name]
+    config = task_configs[task_name]
 
     print(f"Generating language groups for task: {task_name}")
 
     # Detect available languages
-    available_languages = detect_available_languages(task_name, config)
+    available_languages = detect_available_languages(task_name, config, language_groups)
     print(
         f"Available languages: {len(available_languages)} ({', '.join(sorted(available_languages))})"
     )
@@ -224,7 +131,7 @@ def main():
     output_dir.mkdir(exist_ok=True)
 
     for group_name in args.groups:
-        languages = LANGUAGE_GROUPS[group_name]
+        languages = language_groups[group_name]
 
         # Filter to available languages only
         available = [lang for lang in languages if lang in available_languages]
@@ -256,7 +163,7 @@ def main():
 
         # Create subject files if the task has subjects
         if config["has_subjects"]:
-            for subject in SUBJECTS:
+            for subject in config["subjects"]:
                 subject_file = (
                     group_dir
                     / f"{config['group_pattern'].format(group=group_name)}_{subject}.yaml"

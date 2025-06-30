@@ -5,7 +5,7 @@ This unified script generates language group YAML files for various evaluation t
 ## Usage
 
 ```bash
-python3 lm_eval/tasks/global_mmlu/group_languages.py <task> [--groups <group1> <group2> ...]
+python3 scripts/group_languages.py <task> [--groups <group1> <group2> ...]
 ```
 
 ### Arguments
@@ -23,17 +23,43 @@ python3 lm_eval/tasks/global_mmlu/group_languages.py <task> [--groups <group1> <
 
 ### Generate all groups for Global MMLU
 ```bash
-python3 lm_eval/tasks/global_mmlu/group_languages.py global_mmlu
+python3 scripts/group_languages.py global_mmlu
 ```
 
 ### Generate only Swiss group for Hellaswag
 ```bash
-python3 lm_eval/tasks/global_mmlu/group_languages.py hellaswag --groups swiss
+python3 scripts/group_languages.py hellaswag --groups swiss
 ```
 
 ### Generate multiple specific groups
 ```bash
-python3 lm_eval/tasks/global_mmlu/group_languages.py global_mmlu --groups swiss europe
+python3 scripts/group_languages.py global_mmlu --groups swiss europe
+```
+
+## Configuration
+
+The script uses `scripts/group_config.yaml` to define:
+
+- **Language Groups**: Common language groups used across all tasks
+- **Task Configurations**: Task-specific settings including subjects
+- **Output Paths**: Where generated files should be placed
+
+### Configuration Structure
+
+```yaml
+language_groups:
+  swiss: [de, fr, it, ro]
+  europe: [ca, cs, da, de, ...]
+  global: [all available languages]
+
+tasks:
+  task_name:
+    base_dir: "path/to/source/files"
+    output_dir: "path/to/output"
+    task_pattern: "task_{lang}"
+    group_pattern: "task_{group}"
+    has_subjects: true/false
+    subjects: [list of subjects if applicable]
 ```
 
 ## Supported Tasks
@@ -70,11 +96,12 @@ python3 lm_eval/tasks/global_mmlu/group_languages.py global_mmlu --groups swiss 
 
 ## How It Works
 
-1. **Language Detection**: Automatically detects which languages are available for each task
-2. **Subject Detection**: Automatically determines if a task has subjects (like Global MMLU) or not (like Hellaswag)
-3. **Smart Grouping**: Creates appropriate file structures based on task requirements
-4. **Skipping**: Automatically skips language groups that have no available languages for a task
-5. **Standardized Metrics**: Uses consistent metrics across all tasks and groups
+1. **Configuration Loading**: Loads language groups and task configs from YAML file
+2. **Language Detection**: Automatically detects which languages are available for each task
+3. **Subject Detection**: Uses task-specific subjects from configuration
+4. **Smart Grouping**: Creates appropriate file structures based on task requirements
+5. **Skipping**: Automatically skips language groups that have no available languages for a task
+6. **Standardized Metrics**: Uses consistent metrics across all tasks and groups
 
 ## Metrics
 
@@ -98,16 +125,16 @@ aggregate_metric_list:
 
 ## Adding New Tasks
 
-To add support for a new task, add an entry to `TASK_CONFIGS` in the script:
+To add support for a new task, add an entry to the `tasks` section in `scripts/group_config.yaml`:
 
-```python
-"new_task": {
-    "base_dir": "path/to/task/files",
-    "output_dir": "path/to/output",
-    "task_pattern": "task_{lang}",
-    "group_pattern": "task_{group}",
-    "has_subjects": False,  # or True if it has subjects
-}
+```yaml
+new_task:
+  base_dir: "path/to/task/files"
+  output_dir: "path/to/output"
+  task_pattern: "task_{lang}"
+  group_pattern: "task_{group}"
+  has_subjects: false  # or true if it has subjects
+  subjects: []  # list of subjects if has_subjects is true
 ```
 
 ## Generated File Examples
