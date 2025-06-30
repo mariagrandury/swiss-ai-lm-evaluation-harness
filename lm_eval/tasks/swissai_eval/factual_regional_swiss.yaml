@@ -1,10 +1,8 @@
 group: factual_regional_swiss
 
 task:
-  - switzerland_qa_fr  # to be added
-  - switzerland_qa_de  # to be added
-  - switzerland_qa_it  # to be added
-  - switzerland_qa_ro  # to be added
+  - switzerland_qa_swiss  # to be added (switzerland_qa_fr, _de, _it, _ro)
+  - include_base_44_swiss
 
 aggregate_metric_list:
   - metric: acc

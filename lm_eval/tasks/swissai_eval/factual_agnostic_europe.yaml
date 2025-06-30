@@ -1,19 +1,6 @@
-group: factual_regional_eu
-
+group: factual_agnostic_europe
 task:
-  - include_es
-  - include_pt
-  - include_cs
-  - include_el
-  - include_lt
-  - include_nl
-  - include_pl
-  - include_ro
-  - include_ru
-  - include_sr
-  - include_sv
-  - include_tr
-  - include_uk
+  - global_mmlu_full_europe
 
 aggregate_metric_list:
   - metric: acc

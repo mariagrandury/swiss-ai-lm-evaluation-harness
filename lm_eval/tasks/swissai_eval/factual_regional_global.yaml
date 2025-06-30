@@ -3,7 +3,7 @@ group: factual_regional_global
 task:
   - mmlu
   - switzerland_qa
-  - include_<languages>
+  - include_base_44_global
 
 aggregate_metric_list:
   - metric: acc

@@ -1,7 +1,7 @@
 group: factual_agnostic_global
 
 task:
-  - global_mmlu_full
+  - global_mmlu_full_global
 
 aggregate_metric_list:
   - metric: acc

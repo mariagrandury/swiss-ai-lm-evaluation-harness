@@ -1,11 +1,11 @@
 group: general_abilities_global
 
 tasks:
-- m_hellaswag
-- m_arc
-- xwinograd
-- xnli
-- xcopa
+- hellaswag_global
+- arc_global
+- xwinograd_global
+- xnli_global
+- xcopa_global
 
 
 aggregate_metric_list:

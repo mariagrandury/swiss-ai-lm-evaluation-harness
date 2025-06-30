@@ -1,9 +1,7 @@
 group: factual_agnostic_swiss
 
 task:
-  - global_mmlu_full_fr
-  - global_mmlu_full_de
-  - global_mmlu_full_it
+  - global_mmlu_full_swiss
 
 aggregate_metric_list:
   - metric: acc

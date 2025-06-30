@@ -1,17 +1,11 @@
 group: general_abilities_swiss
 
 tasks:
-- hellaswag_fr
-- hellaswag_de
-- hellaswag_it  
-- xcopa_it
-- arc_fr
-- arc_de
-- arc_it
-- xwinograd_fr
-- xnli_fr
-- xnli_de
-- xnli_it
+- hellaswag_swiss
+- xcopa_swiss
+- arc_swiss
+- xwinograd_swiss
+- xnli_swiss
 
 aggregate_metric_list:
   - metric: acc

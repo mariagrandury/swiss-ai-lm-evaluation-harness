@@ -1,18 +1,11 @@
-group: factual_agnostic_eu
-task:
-  - global_mmlu_full_es
-  - global_mmlu_full_pt
-  - global_mmlu_full_cs
-  - global_mmlu_full_el
-  - global_mmlu_full_lt
-  - global_mmlu_full_nl
-  - global_mmlu_full_pl
-  - global_mmlu_full_ro
-  - global_mmlu_full_ru
-  - global_mmlu_full_sr
-  - global_mmlu_full_sv
-  - global_mmlu_full_tr
-  - global_mmlu_full_uk
+group: general_abilities_europe
+
+tasks:
+  - hellaswag_europe
+  - arc_europe  # todo
+  - xwinograd_europe  # todo: pt, ru
+  - xnli_europe  # todo: bg, el, es, ru, tr
+  - xcopa_europe  # todo: et, tr
 
 aggregate_metric_list:
   - metric: acc
