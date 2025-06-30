@@ -1,0 +1,34 @@
+group: hellaswag_europe
+task:
+  - hellaswag_ca
+  - hellaswag_da
+  - hellaswag_de
+  - hellaswag_es
+  - hellaswag_eu
+  - hellaswag_fr
+  - hellaswag_hr
+  - hellaswag_hu
+  - hellaswag_it
+  - hellaswag_nl
+  - hellaswag_pt
+  - hellaswag_ro
+  - hellaswag_ru
+  - hellaswag_sk
+  - hellaswag_sr
+  - hellaswag_sv
+  - hellaswag_uk
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false  # Set to false if you want unweighted average
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

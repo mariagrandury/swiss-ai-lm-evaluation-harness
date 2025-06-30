@@ -17,6 +17,7 @@ task:
   - global_mmlu_full_sv_other
   - global_mmlu_full_tr_other
   - global_mmlu_full_uk_other
+  - global_mmlu_full_ar_other
   - global_mmlu_full_bn_other
   - global_mmlu_full_fa_other
   - global_mmlu_full_fil_other
@@ -33,7 +34,6 @@ task:
   - global_mmlu_full_vi_other
   - global_mmlu_full_zh_other
   - global_mmlu_full_am_other
-  - global_mmlu_full_ar_other
   - global_mmlu_full_ha_other
   - global_mmlu_full_ig_other
   - global_mmlu_full_mg_other

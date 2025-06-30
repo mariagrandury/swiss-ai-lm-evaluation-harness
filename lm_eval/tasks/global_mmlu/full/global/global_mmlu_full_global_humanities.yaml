@@ -17,6 +17,7 @@ task:
   - global_mmlu_full_sv_humanities
   - global_mmlu_full_tr_humanities
   - global_mmlu_full_uk_humanities
+  - global_mmlu_full_ar_humanities
   - global_mmlu_full_bn_humanities
   - global_mmlu_full_fa_humanities
   - global_mmlu_full_fil_humanities
@@ -33,7 +34,6 @@ task:
   - global_mmlu_full_vi_humanities
   - global_mmlu_full_zh_humanities
   - global_mmlu_full_am_humanities
-  - global_mmlu_full_ar_humanities
   - global_mmlu_full_ha_humanities
   - global_mmlu_full_ig_humanities
   - global_mmlu_full_mg_humanities

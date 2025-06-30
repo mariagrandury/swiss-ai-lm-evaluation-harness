@@ -1,0 +1,24 @@
+group: hellaswag_asia
+task:
+  - hellaswag_ar
+  - hellaswag_bn
+  - hellaswag_gu
+  - hellaswag_hi
+  - hellaswag_hy
+  - hellaswag_id
+  - hellaswag_kn
+  - hellaswag_ml
+  - hellaswag_mr
+  - hellaswag_ne
+  - hellaswag_ta
+  - hellaswag_te
+  - hellaswag_vi
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
