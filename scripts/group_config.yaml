@@ -109,7 +109,7 @@ tasks:
 
   hellaswag:
     base_dir: "lm_eval/tasks/okapi/hellaswag_multilingual"
-    output_dir: "lm_eval/tasks/hellaswag_groups"
+    output_dir: "lm_eval/tasks/okapi/hellaswag_multilingual"
     task_pattern: "hellaswag_{lang}"
     group_pattern: "hellaswag_{group}"
     has_subjects: false
