@@ -1,0 +1,32 @@
+group: include_base_44_europe_stem
+task:
+  - include_base_44_german_stem
+  - include_base_44_greek_stem
+  - include_base_44_spanish_stem
+  - include_base_44_french_stem
+  - include_base_44_croatian_stem
+  - include_base_44_hungarian_stem
+  - include_base_44_italian_stem
+  - include_base_44_lithuanian_stem
+  - include_base_44_dutch_stem
+  - include_base_44_polish_stem
+  - include_base_44_portuguese_stem
+  - include_base_44_russian_stem
+  - include_base_44_serbian_stem
+  - include_base_44_turkish_stem
+  - include_base_44_ukrainian_stem
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

@@ -1,0 +1,20 @@
+group: include_base_44_swiss_social_science
+task:
+  - include_base_44_german_social_science
+  - include_base_44_french_social_science
+  - include_base_44_italian_social_science
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

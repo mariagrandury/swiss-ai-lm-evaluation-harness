@@ -1,0 +1,24 @@
+group: include_base_44_europe_health_oriented_education
+task:
+  - include_base_44_greek_health_oriented_education
+  - include_base_44_spanish_health_oriented_education
+  - include_base_44_french_health_oriented_education
+  - include_base_44_italian_health_oriented_education
+  - include_base_44_dutch_health_oriented_education
+  - include_base_44_portuguese_health_oriented_education
+  - include_base_44_russian_health_oriented_education
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

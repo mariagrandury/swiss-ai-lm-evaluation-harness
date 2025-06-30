@@ -1,0 +1,28 @@
+group: include_base_44_global
+task:
+  - include_base_44_global_applied_science
+  - include_base_44_global_arts_humanities
+  - include_base_44_global_business_commerce
+  - include_base_44_global_driving_license
+  - include_base_44_global_general_knowledge
+  - include_base_44_global_health_oriented_education
+  - include_base_44_global_marine_license
+  - include_base_44_global_medical_license
+  - include_base_44_global_professional_certification
+  - include_base_44_global_social_science
+  - include_base_44_global_stem
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

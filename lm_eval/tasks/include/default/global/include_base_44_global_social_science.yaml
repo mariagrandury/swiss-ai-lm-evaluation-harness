@@ -1,0 +1,43 @@
+group: include_base_44_global_social_science
+task:
+  - include_base_44_german_social_science
+  - include_base_44_greek_social_science
+  - include_base_44_spanish_social_science
+  - include_base_44_french_social_science
+  - include_base_44_croatian_social_science
+  - include_base_44_hungarian_social_science
+  - include_base_44_italian_social_science
+  - include_base_44_lithuanian_social_science
+  - include_base_44_dutch_social_science
+  - include_base_44_polish_social_science
+  - include_base_44_portuguese_social_science
+  - include_base_44_russian_social_science
+  - include_base_44_serbian_social_science
+  - include_base_44_turkish_social_science
+  - include_base_44_ukrainian_social_science
+  - include_base_44_arabic_social_science
+  - include_base_44_persian_social_science
+  - include_base_44_hindi_social_science
+  - include_base_44_armenian_social_science
+  - include_base_44_indonesian_social_science
+  - include_base_44_korean_social_science
+  - include_base_44_malayalam_social_science
+  - include_base_44_malay_social_science
+  - include_base_44_telugu_social_science
+  - include_base_44_vietnamese_social_science
+  - include_base_44_chinese_social_science
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0

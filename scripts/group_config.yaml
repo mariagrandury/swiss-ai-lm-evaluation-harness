@@ -91,6 +91,52 @@ language_groups:
     - sw  # Swahili
     - yo  # Yoruba
 
+# Language code to full language name mapping
+language_mapping:
+  ar: "Arabic"
+  az: "Azerbaijani"
+  be: "Belarusian"
+  bg: "Bulgarian"
+  bn: "Bengali"
+  de: "German"
+  el: "Greek"
+  es: "Spanish"
+  et: "Estonian"
+  eu: "Basque"
+  fa: "Persian"
+  fi: "Finnish"
+  fr: "French"
+  he: "Hebrew"
+  hi: "Hindi"
+  hr: "Croatian"
+  hu: "Hungarian"
+  hy: "Armenian"
+  id: "Indonesian"
+  it: "Italian"
+  ja: "Japanese"
+  ka: "Georgian"
+  kk: "Kazakh"
+  ko: "Korean"
+  lt: "Lithuanian"
+  mk: "North Macedonian"
+  ml: "Malayalam"
+  ms: "Malay"
+  ne: "Nepali"
+  nl: "Dutch"
+  pl: "Polish"
+  pt: "Portuguese"
+  ru: "Russian"
+  sr: "Serbian"
+  ta: "Tamil"
+  te: "Telugu"
+  tl: "Tagalog"
+  tr: "Turkish"
+  uk: "Ukrainian"
+  ur: "Urdu"
+  uz: "Uzbek"
+  vi: "Vietnamese"
+  zh: "Chinese"
+
 # Task configurations
 tasks:
   global_mmlu:
@@ -145,4 +191,25 @@ tasks:
     task_pattern: "xcopa_{lang}"         # Task names referenced in YAML
     group_pattern: "xcopa_{group}"
     has_subjects: false
-    subjects: [] 
+    subjects: []
+
+  include:
+    base_dir: "lm_eval/tasks/include/default"
+    output_dir: "lm_eval/tasks/include/default"
+    task_pattern: "include_base_44_{lang_name}"
+    subject_pattern: "include_base_44_{lang_name}_{subject}"
+    group_pattern: "include_base_44_{group}"
+    has_subjects: true
+    subjects:
+      - applied_science
+      - arts_humanities
+      - business_commerce
+      - driving_license
+      - general_knowledge
+      - health_oriented_education
+      - marine_license
+      - medical_license
+      - professional_certification
+      - social_science
+      - stem
+    use_full_language_names: true 

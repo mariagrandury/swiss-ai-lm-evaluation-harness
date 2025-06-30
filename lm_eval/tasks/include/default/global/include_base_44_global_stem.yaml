@@ -1,0 +1,43 @@
+group: include_base_44_global_stem
+task:
+  - include_base_44_german_stem
+  - include_base_44_greek_stem
+  - include_base_44_spanish_stem
+  - include_base_44_french_stem
+  - include_base_44_croatian_stem
+  - include_base_44_hungarian_stem
+  - include_base_44_italian_stem
+  - include_base_44_lithuanian_stem
+  - include_base_44_dutch_stem
+  - include_base_44_polish_stem
+  - include_base_44_portuguese_stem
+  - include_base_44_russian_stem
+  - include_base_44_serbian_stem
+  - include_base_44_turkish_stem
+  - include_base_44_ukrainian_stem
+  - include_base_44_arabic_stem
+  - include_base_44_bengali_stem
+  - include_base_44_persian_stem
+  - include_base_44_hindi_stem
+  - include_base_44_armenian_stem
+  - include_base_44_indonesian_stem
+  - include_base_44_malayalam_stem
+  - include_base_44_tamil_stem
+  - include_base_44_telugu_stem
+  - include_base_44_vietnamese_stem
+  - include_base_44_chinese_stem
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: false
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
+metadata:
+  version: 1.0
