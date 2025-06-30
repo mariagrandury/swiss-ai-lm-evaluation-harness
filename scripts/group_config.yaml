@@ -130,3 +130,11 @@ tasks:
     group_pattern: "xwinograd_{group}"
     has_subjects: false
     subjects: [] 
+
+  xnli:
+    base_dir: "lm_eval/tasks/xnli"
+    output_dir: "lm_eval/tasks/xnli"
+    task_pattern: "xnli_{lang}"
+    group_pattern: "xnli_{group}"
+    has_subjects: false
+    subjects: [] 
