@@ -1,4 +1,4 @@
-group: global_mmlu_full_europe_stem
+group: global_mmlu_full_global_stem
 task:
   - global_mmlu_full_cs_stem
   - global_mmlu_full_de_stem
@@ -17,6 +17,31 @@ task:
   - global_mmlu_full_sv_stem
   - global_mmlu_full_tr_stem
   - global_mmlu_full_uk_stem
+  - global_mmlu_full_bn_stem
+  - global_mmlu_full_fa_stem
+  - global_mmlu_full_fil_stem
+  - global_mmlu_full_he_stem
+  - global_mmlu_full_hi_stem
+  - global_mmlu_full_id_stem
+  - global_mmlu_full_ja_stem
+  - global_mmlu_full_ko_stem
+  - global_mmlu_full_ky_stem
+  - global_mmlu_full_ms_stem
+  - global_mmlu_full_ne_stem
+  - global_mmlu_full_si_stem
+  - global_mmlu_full_te_stem
+  - global_mmlu_full_vi_stem
+  - global_mmlu_full_zh_stem
+  - global_mmlu_full_am_stem
+  - global_mmlu_full_ar_stem
+  - global_mmlu_full_ha_stem
+  - global_mmlu_full_ig_stem
+  - global_mmlu_full_mg_stem
+  - global_mmlu_full_ny_stem
+  - global_mmlu_full_sn_stem
+  - global_mmlu_full_so_stem
+  - global_mmlu_full_sw_stem
+  - global_mmlu_full_yo_stem
 aggregate_metric_list:
   - metric: acc
     aggregation: mean

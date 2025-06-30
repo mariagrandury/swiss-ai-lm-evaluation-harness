@@ -77,7 +77,7 @@ GROUPS = {
 SUBJECTS = ["stem", "humanities", "social_sciences", "other"]
 
 
-def create_yaml(group_name, languages, subject=None):
+def create_group_yaml(group_name, languages, subject=None):
     """Create YAML content for a group and subject."""
     if subject:
         group_id = f"global_mmlu_full_{group_name}_{subject}"
@@ -85,9 +85,8 @@ def create_yaml(group_name, languages, subject=None):
     else:
         group_id = f"global_mmlu_full_{group_name}"
         tasks = []
-        for lang in languages:
-            for subj in SUBJECTS:
-                tasks.append(f"  - global_mmlu_full_{lang}_{subj}")
+        for subj in SUBJECTS:
+            tasks.append(f"  - global_mmlu_full_{group_name}_{subj}")
 
     return f"""group: {group_id}
 task:
@@ -125,15 +124,15 @@ def main():
         group_dir = base_dir / group_name
         group_dir.mkdir(exist_ok=True)
 
-        # Create main file
+        # Create main group file
         (group_dir / f"global_mmlu_full_{group_name}.yaml").write_text(
-            create_yaml(group_name, available)
+            create_group_yaml(group_name, available)
         )
 
         # Create subject files
         for subject in SUBJECTS:
             (group_dir / f"global_mmlu_full_{group_name}_{subject}.yaml").write_text(
-                create_yaml(group_name, available, subject)
+                create_group_yaml(group_name, available, subject)
             )
 
 

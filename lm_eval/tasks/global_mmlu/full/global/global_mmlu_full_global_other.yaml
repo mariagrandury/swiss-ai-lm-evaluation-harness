@@ -1,4 +1,4 @@
-group: global_mmlu_full_europe_other
+group: global_mmlu_full_global_other
 task:
   - global_mmlu_full_cs_other
   - global_mmlu_full_de_other
@@ -17,6 +17,31 @@ task:
   - global_mmlu_full_sv_other
   - global_mmlu_full_tr_other
   - global_mmlu_full_uk_other
+  - global_mmlu_full_bn_other
+  - global_mmlu_full_fa_other
+  - global_mmlu_full_fil_other
+  - global_mmlu_full_he_other
+  - global_mmlu_full_hi_other
+  - global_mmlu_full_id_other
+  - global_mmlu_full_ja_other
+  - global_mmlu_full_ko_other
+  - global_mmlu_full_ky_other
+  - global_mmlu_full_ms_other
+  - global_mmlu_full_ne_other
+  - global_mmlu_full_si_other
+  - global_mmlu_full_te_other
+  - global_mmlu_full_vi_other
+  - global_mmlu_full_zh_other
+  - global_mmlu_full_am_other
+  - global_mmlu_full_ar_other
+  - global_mmlu_full_ha_other
+  - global_mmlu_full_ig_other
+  - global_mmlu_full_mg_other
+  - global_mmlu_full_ny_other
+  - global_mmlu_full_sn_other
+  - global_mmlu_full_so_other
+  - global_mmlu_full_sw_other
+  - global_mmlu_full_yo_other
 aggregate_metric_list:
   - metric: acc
     aggregation: mean
