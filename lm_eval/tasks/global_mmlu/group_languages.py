@@ -8,6 +8,7 @@ BASE_DIR = "lm_eval/tasks/global_mmlu/full"
 
 # Language groups
 GROUPS = {
+    "swiss": ["de", "fr", "it", "ro"],
     "europe": [
         "cs",  # Czech
         "de",  # German
@@ -27,7 +28,24 @@ GROUPS = {
         "tr",  # Turkish
         "uk",  # Ukrainian
     ],
-    "asia": [
+    "global": [
+        "cs",  # Czech
+        "de",  # German
+        "el",  # Greek
+        "en",  # English
+        "es",  # Spanish
+        "fr",  # French
+        "it",  # Italian
+        "lt",  # Lithuanian
+        "nl",  # Dutch
+        "pl",  # Polish
+        "pt",  # Portuguese
+        "ro",  # Romanian
+        "ru",  # Russian
+        "sr",  # Serbian
+        "sv",  # Swedish
+        "tr",  # Turkish
+        "uk",  # Ukrainian
         "bn",  # Bengali
         "fa",  # Persian/Farsi
         "fil",  # Filipino
@@ -43,8 +61,6 @@ GROUPS = {
         "te",  # Telugu
         "vi",  # Vietnamese
         "zh",  # Chinese
-    ],
-    "africa": [
         "am",  # Amharic
         "ar",  # Arabic
         "ha",  # Hausa
@@ -55,11 +71,6 @@ GROUPS = {
         "so",  # Somali
         "sw",  # Swahili
         "yo",  # Yoruba
-    ],
-    "swiss": [
-        "de",  # German
-        "fr",  # French
-        "it",  # Italian
     ],
 }
 
@@ -83,7 +94,17 @@ task:
 {chr(10).join(tasks)}
 aggregate_metric_list:
   - metric: acc
-    weight_by_size: True
+    aggregation: mean
+    weight_by_size: false  # Set to false if you want unweighted average
+  - metric: acc_norm
+    aggregation: mean
+    weight_by_size: false
+  - metric: perplexity
+    aggregation: mean
+    weight_by_size: false
+  - metric: f1
+    aggregation: mean
+    weight_by_size: false
 metadata:
   version: 1.0
 """
