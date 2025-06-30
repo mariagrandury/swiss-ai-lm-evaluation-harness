@@ -122,3 +122,11 @@ tasks:
     group_pattern: "arc_{group}"
     has_subjects: false
     subjects: [] 
+
+  xwinograd:
+    base_dir: "lm_eval/tasks/xwinograd"
+    output_dir: "lm_eval/tasks/xwinograd"
+    task_pattern: "xwinograd_{lang}"
+    group_pattern: "xwinograd_{group}"
+    has_subjects: false
+    subjects: [] 
