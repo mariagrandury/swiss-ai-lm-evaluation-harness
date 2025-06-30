@@ -66,6 +66,73 @@ metadata:
 """
 
 
+def create_subject_group_files(
+    config, group_name, available_languages, output_dir, language_mapping=None
+):
+    """Create group files for tasks with subjects (like include and global_mmlu)."""
+    group_dir = output_dir / group_name
+    group_dir.mkdir(exist_ok=True)
+
+    created_subjects = []
+    for subject in config["subjects"]:
+        # Try to create this subject - collect languages that have it
+        tasks = []
+        for lang in available_languages:
+            if config.get("use_full_language_names", False):
+                # For include task
+                lang_dir_name = language_mapping.get(lang, "")
+                if lang_dir_name:
+                    subject_file = (
+                        Path(config["base_dir"])
+                        / lang_dir_name
+                        / f"include_base_44_{lang_dir_name.lower().replace(' ', '_')}_{subject}.yaml"
+                    )
+                    if subject_file.exists():
+                        task = config["subject_pattern"].format(
+                            lang_name=lang_dir_name.lower().replace(" ", "_"),
+                            subject=subject,
+                        )
+                        tasks.append(task)
+            else:
+                # For global_mmlu, check for underscore-prefixed files
+                subject_file = (
+                    Path(config["base_dir"])
+                    / lang
+                    / f"_{config['task_pattern'].format(lang=lang)}_{subject}.yaml"
+                )
+                if subject_file.exists():
+                    task = config["subject_pattern"].format(lang=lang, subject=subject)
+                    tasks.append(task)
+
+        # Only create subject file if we found at least one language with this subject
+        if tasks:
+            created_subjects.append(subject)
+            subject_file = (
+                group_dir
+                / f"{config['group_pattern'].format(group=group_name)}_{subject}.yaml"
+            )
+            subject_file.write_text(
+                create_yaml_content(
+                    f"{config['group_pattern'].format(group=group_name)}_{subject}",
+                    tasks,
+                )
+            )
+            print(f"  Created {subject_file}")
+
+    # Create main group file referencing created subjects
+    main_tasks = [
+        f"{config['group_pattern'].format(group=group_name)}_{subject}"
+        for subject in created_subjects
+    ]
+    main_file = group_dir / f"{config['group_pattern'].format(group=group_name)}.yaml"
+    main_file.write_text(
+        create_yaml_content(
+            config["group_pattern"].format(group=group_name), main_tasks
+        )
+    )
+    print(f"  Created {main_file}")
+
+
 def generate_groups_for_task(
     task_name, config, language_groups, selected_groups, language_mapping=None
 ):
@@ -102,71 +169,9 @@ def generate_groups_for_task(
         )
 
         if config["has_subjects"]:
-            # Create group directory and try to create each subject
-            group_dir = output_dir / group_name
-            group_dir.mkdir(exist_ok=True)
-
-            created_subjects = []
-            for subject in config["subjects"]:
-                # Try to create this subject - collect languages that have it
-                tasks = []
-                for lang in available:
-                    if config.get("use_full_language_names", False):
-                        lang_dir_name = language_mapping.get(lang, "")
-                        if lang_dir_name:
-                            subject_file = (
-                                Path(config["base_dir"])
-                                / lang_dir_name
-                                / f"include_base_44_{lang_dir_name.lower().replace(' ', '_')}_{subject}.yaml"
-                            )
-                            if subject_file.exists():
-                                task = config["subject_pattern"].format(
-                                    lang_name=lang_dir_name.lower().replace(" ", "_"),
-                                    subject=subject,
-                                )
-                                tasks.append(task)
-                    else:
-                        # For global_mmlu, check for underscore-prefixed files
-                        subject_file = (
-                            Path(config["base_dir"])
-                            / lang
-                            / f"_{config['task_pattern'].format(lang=lang)}_{subject}.yaml"
-                        )
-                        if subject_file.exists():
-                            task = config["subject_pattern"].format(
-                                lang=lang, subject=subject
-                            )
-                            tasks.append(task)
-
-                # Only create subject file if we found at least one language with this subject
-                if tasks:
-                    created_subjects.append(subject)
-                    subject_file = (
-                        group_dir
-                        / f"{config['group_pattern'].format(group=group_name)}_{subject}.yaml"
-                    )
-                    subject_file.write_text(
-                        create_yaml_content(
-                            f"{config['group_pattern'].format(group=group_name)}_{subject}",
-                            tasks,
-                        )
-                    )
-                    print(f"  Created {subject_file}")
-
-            # Create main group file referencing created subjects
-            main_tasks = [
-                f"{config['group_pattern'].format(group=group_name)}_{subject}"
-                for subject in created_subjects
-            ]
-            main_file = (
-                group_dir / f"{config['group_pattern'].format(group=group_name)}.yaml"
+            create_subject_group_files(
+                config, group_name, available, output_dir, language_mapping
             )
-            main_file.write_text(
-                create_yaml_content(
-                    config["group_pattern"].format(group=group_name), main_tasks
-                )
-            )
-            print(f"  Created {main_file}")
         else:
             # Simple task without subjects
             tasks = [config["task_pattern"].format(lang=lang) for lang in available]
