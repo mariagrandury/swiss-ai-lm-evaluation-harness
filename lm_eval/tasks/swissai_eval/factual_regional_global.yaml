@@ -1,4 +1,4 @@
-group: factual_regional_english
+group: factual_regional_global
 
 task:
   - mmlu
@@ -6,7 +6,7 @@ task:
   - include_<languages>
 
 aggregate_metric_list:
-  - metric: accs
+  - metric: acc
     aggregation: mean
     weight_by_size: false
   - metric: acc_norm

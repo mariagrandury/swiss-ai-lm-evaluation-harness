@@ -1,4 +1,4 @@
-group: factual_regional_english
+group: factual_regional_swiss
 
 task:
   - switzerland_qa_fr  # to be added
@@ -7,7 +7,7 @@ task:
   - switzerland_qa_ro  # to be added
 
 aggregate_metric_list:
-  - metric: accs
+  - metric: acc
     aggregation: mean
     weight_by_size: false
   - metric: acc_norm

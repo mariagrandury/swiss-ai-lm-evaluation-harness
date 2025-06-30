@@ -1,4 +1,4 @@
-group: factual_agnostic_english
+group: factual_agnostic_eu
 task:
   - global_mmlu_full_es
   - global_mmlu_full_pt
@@ -15,7 +15,7 @@ task:
   - global_mmlu_full_uk
 
 aggregate_metric_list:
-  - metric: accs
+  - metric: acc
     aggregation: mean
     weight_by_size: false
   - metric: acc_norm

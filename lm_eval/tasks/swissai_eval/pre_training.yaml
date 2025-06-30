@@ -1,4 +1,4 @@
-group: pre-training
+group: pre_training
 task:
 
 # factual agnostic knowledge

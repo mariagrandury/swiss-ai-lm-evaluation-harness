@@ -1,4 +1,4 @@
-group: general_abilities_english
+group: general_abilities_global
 
 tasks:
 - m_hellaswag
@@ -9,7 +9,7 @@ tasks:
 
 
 aggregate_metric_list:
-  - metric: accs
+  - metric: acc
     aggregation: mean
     weight_by_size: false
   - metric: acc_norm

@@ -1,4 +1,4 @@
-group: factual_regional_english
+group: factual_regional_eu
 
 task:
   - include_es
@@ -16,7 +16,7 @@ task:
   - include_uk
 
 aggregate_metric_list:
-  - metric: accs
+  - metric: acc
     aggregation: mean
     weight_by_size: false
   - metric: acc_norm

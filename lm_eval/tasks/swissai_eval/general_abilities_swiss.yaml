@@ -1,4 +1,4 @@
-group: general_abilities_english
+group: general_abilities_swiss
 
 tasks:
 - hellaswag_fr
@@ -14,7 +14,7 @@ tasks:
 - xnli_it
 
 aggregate_metric_list:
-  - metric: accs
+  - metric: acc
     aggregation: mean
     weight_by_size: false
   - metric: acc_norm

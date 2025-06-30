@@ -1,4 +1,4 @@
-group: factual-regional-knowledge
+group: post_training
 task:
 # reasoning
   - gsm8k

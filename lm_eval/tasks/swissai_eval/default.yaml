@@ -1,7 +1,7 @@
 group: swissai_eval
 task:
-  - pre-training
-  - post-training
+  - pre_training
+  - post_training
 
 aggregate_metric_list:
   - metric: acc

@@ -7,7 +7,7 @@ task:
   - truthfulqa
 
 aggregate_metric_list:
-  - metric: accs
+  - metric: acc
     aggregation: mean
     weight_by_size: false
   - metric: acc_norm
