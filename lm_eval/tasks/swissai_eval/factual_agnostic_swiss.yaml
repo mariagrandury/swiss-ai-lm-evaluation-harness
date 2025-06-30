@@ -1,12 +1,14 @@
-group: swissai_eval
+group: factual_agnostic_english
+
 task:
-  - pre-training
-  - post-training
+  - global_mmlu_full_fr
+  - global_mmlu_full_de
+  - global_mmlu_full_it
 
 aggregate_metric_list:
-  - metric: acc
+  - metric: accs
     aggregation: mean
-    weight_by_size: false  # Set to false if you want unweighted average
+    weight_by_size: false
   - metric: acc_norm
     aggregation: mean
     weight_by_size: false

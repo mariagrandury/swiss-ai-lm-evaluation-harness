@@ -1,12 +1,14 @@
-group: swissai_eval
+group: factual_regional_english
+
 task:
-  - pre-training
-  - post-training
+  - mmlu
+  - switzerland_qa
+  - include_<languages>
 
 aggregate_metric_list:
-  - metric: acc
+  - metric: accs
     aggregation: mean
-    weight_by_size: false  # Set to false if you want unweighted average
+    weight_by_size: false
   - metric: acc_norm
     aggregation: mean
     weight_by_size: false

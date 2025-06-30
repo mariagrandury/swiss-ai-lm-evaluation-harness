@@ -1,12 +1,22 @@
-group: swissai_eval
-task:
-  - pre-training
-  - post-training
+group: general_abilities_english
+
+tasks:
+- hellaswag_fr
+- hellaswag_de
+- hellaswag_it  
+- xcopa_it
+- arc_fr
+- arc_de
+- arc_it
+- xwinograd_fr
+- xnli_fr
+- xnli_de
+- xnli_it
 
 aggregate_metric_list:
-  - metric: acc
+  - metric: accs
     aggregation: mean
-    weight_by_size: false  # Set to false if you want unweighted average
+    weight_by_size: false
   - metric: acc_norm
     aggregation: mean
     weight_by_size: false

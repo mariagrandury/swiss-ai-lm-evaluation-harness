@@ -1,12 +1,16 @@
-group: swissai_eval
+group: factual-regional-knowledge
 task:
-  - pre-training
-  - post-training
+# reasoning
+  - gsm8k
+
+# red-teaming
+# to be added later
+
 
 aggregate_metric_list:
   - metric: acc
     aggregation: mean
-    weight_by_size: false  # Set to false if you want unweighted average
+    weight_by_size: false
   - metric: acc_norm
     aggregation: mean
     weight_by_size: false
