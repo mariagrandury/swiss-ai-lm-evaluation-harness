@@ -112,7 +112,7 @@ tasks:
     task_pattern: "hellaswag_{lang}"
     group_pattern: "hellaswag_{group}"
     has_subjects: false
-    subjects: [] 
+    subjects: []
 
   arc:
     base_dir: "lm_eval/tasks/okapi/arc_multilingual"
@@ -120,7 +120,7 @@ tasks:
     task_pattern: "arc_{lang}"
     group_pattern: "arc_{group}"
     has_subjects: false
-    subjects: [] 
+    subjects: []
 
   xwinograd:
     base_dir: "lm_eval/tasks/xwinograd"
@@ -128,12 +128,21 @@ tasks:
     task_pattern: "xwinograd_{lang}"
     group_pattern: "xwinograd_{group}"
     has_subjects: false
-    subjects: [] 
+    subjects: []
 
   xnli:
     base_dir: "lm_eval/tasks/xnli"
     output_dir: "lm_eval/tasks/xnli"
     task_pattern: "xnli_{lang}"
     group_pattern: "xnli_{group}"
+    has_subjects: false
+    subjects: []
+
+  xcopa:
+    base_dir: "lm_eval/tasks/xcopa"
+    output_dir: "lm_eval/tasks/xcopa"
+    file_pattern: "default_{lang}.yaml"  # File names on disk
+    task_pattern: "xcopa_{lang}"         # Task names referenced in YAML
+    group_pattern: "xcopa_{group}"
     has_subjects: false
     subjects: [] 

@@ -31,8 +31,12 @@ def detect_available_languages(task_name, config, language_groups):
                 available_languages.append(lang)
     else:
         # For tasks without subjects, check for individual task files
+        # Use file_pattern if available, otherwise fall back to task_pattern
+        file_pattern = config.get("file_pattern", config["task_pattern"] + ".yaml")
+
         for lang in language_groups["global"]:
-            task_file = base_dir / f"{config['task_pattern'].format(lang=lang)}.yaml"
+            task_file = base_dir / file_pattern.format(lang=lang)
+
             if task_file.exists():
                 available_languages.append(lang)
 
@@ -63,7 +67,7 @@ def create_group_yaml(task_name, config, group_name, languages, subject=None):
                     f"  - {config['group_pattern'].format(group=group_name)}_{subj}"
                 )
         else:
-            # Reference individual language tasks
+            # Reference individual language tasks using task_pattern (not file_pattern)
             tasks = [
                 f"  - {config['task_pattern'].format(lang=lang)}" for lang in languages
             ]
