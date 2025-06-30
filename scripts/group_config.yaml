@@ -114,3 +114,11 @@ tasks:
     group_pattern: "hellaswag_{group}"
     has_subjects: false
     subjects: [] 
+
+  arc:
+    base_dir: "lm_eval/tasks/okapi/arc_multilingual"
+    output_dir: "lm_eval/tasks/okapi/arc_multilingual"
+    task_pattern: "arc_{lang}"
+    group_pattern: "arc_{group}"
+    has_subjects: false
+    subjects: [] 
