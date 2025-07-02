@@ -1,6 +1,6 @@
 group: general_abilities_global
 
-tasks:
+task:
 - hellaswag_global
 - arc_global
 - xwinograd_global

@@ -1,6 +1,6 @@
 group: general_abilities_english
 
-tasks:
+task:
 - hellaswag
 - piqa
 - ai2_arc
@@ -9,7 +9,7 @@ tasks:
 - copa
 
 aggregate_metric_list:
-  - metric: accs
+  - metric: acc
     aggregation: mean
     weight_by_size: false
   - metric: acc_norm

@@ -23,5 +23,6 @@ lm_eval/caching/.cache
 # don't track files created by wandb
 wandb
 examples/wandb
-# don't track todo list
+# don't track todo list or eval output files
 scripts/todo.md
+out/

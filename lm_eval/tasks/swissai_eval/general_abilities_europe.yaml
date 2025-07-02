@@ -1,11 +1,11 @@
 group: general_abilities_europe
 
-tasks:
+task:
   - hellaswag_europe
-  - arc_europe  # todo
-  - xwinograd_europe  # todo: pt, ru
-  - xnli_europe  # todo: bg, el, es, ru, tr
-  - xcopa_europe  # todo: et, tr
+  - arc_europe 
+  - xwinograd_europe 
+  - xnli_europe 
+  - xcopa_europe 
 
 aggregate_metric_list:
   - metric: acc

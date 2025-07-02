@@ -1,6 +1,6 @@
 group: general_abilities_swiss
 
-tasks:
+task:
 - hellaswag_swiss
 - xcopa_swiss
 - arc_swiss
