@@ -2,8 +2,8 @@ group: factual_regional_global
 
 task:
   - mmlu
-  - switzerland_qa
   - include_base_44_global
+  # - switzerland_qa  # todo
 
 aggregate_metric_list:
   - metric: acc
