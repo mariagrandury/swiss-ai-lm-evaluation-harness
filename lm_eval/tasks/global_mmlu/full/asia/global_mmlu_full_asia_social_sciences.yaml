@@ -1,6 +1,5 @@
 group: global_mmlu_full_asia_social_sciences
 task:
-  - global_mmlu_full_ar_social_sciences
   - global_mmlu_full_bn_social_sciences
   - global_mmlu_full_fa_social_sciences
   - global_mmlu_full_fil_social_sciences

@@ -1,6 +1,5 @@
 group: include_base_44_asia_driving_license
 task:
-  - include_base_44_arabic_driving_license
   - include_base_44_persian_driving_license
   - include_base_44_hebrew_driving_license
   - include_base_44_hindi_driving_license

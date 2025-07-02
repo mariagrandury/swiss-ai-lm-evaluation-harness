@@ -45,7 +45,7 @@ language_groups:
     - yo  # Yoruba
 
   asia:
-    - ar  # Arabic
+    # - ar  # Arabic -> cannot be included in two harness groups
     - bn  # Bengali
     - fa  # Persian/Farsi
     - fil # Filipino

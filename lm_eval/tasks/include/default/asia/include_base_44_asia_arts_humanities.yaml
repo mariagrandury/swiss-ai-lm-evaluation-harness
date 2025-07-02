@@ -1,6 +1,5 @@
 group: include_base_44_asia_arts_humanities
 task:
-  - include_base_44_arabic_arts_humanities
   - include_base_44_bengali_arts_humanities
   - include_base_44_persian_arts_humanities
   - include_base_44_hebrew_arts_humanities

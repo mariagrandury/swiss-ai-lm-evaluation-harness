@@ -1,6 +1,5 @@
 group: global_mmlu_full_asia_humanities
 task:
-  - global_mmlu_full_ar_humanities
   - global_mmlu_full_bn_humanities
   - global_mmlu_full_fa_humanities
   - global_mmlu_full_fil_humanities

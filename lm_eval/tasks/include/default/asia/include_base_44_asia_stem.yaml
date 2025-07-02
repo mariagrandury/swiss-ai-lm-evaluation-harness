@@ -1,6 +1,5 @@
 group: include_base_44_asia_stem
 task:
-  - include_base_44_arabic_stem
   - include_base_44_bengali_stem
   - include_base_44_persian_stem
   - include_base_44_hindi_stem

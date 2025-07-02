@@ -1,6 +1,5 @@
 group: global_mmlu_full_asia_stem
 task:
-  - global_mmlu_full_ar_stem
   - global_mmlu_full_bn_stem
   - global_mmlu_full_fa_stem
   - global_mmlu_full_fil_stem

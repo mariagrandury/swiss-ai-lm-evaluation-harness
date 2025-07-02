@@ -1,6 +1,5 @@
 group: include_base_44_asia_general_knowledge
 task:
-  - include_base_44_arabic_general_knowledge
   - include_base_44_bengali_general_knowledge
   - include_base_44_hindi_general_knowledge
   - include_base_44_malayalam_general_knowledge

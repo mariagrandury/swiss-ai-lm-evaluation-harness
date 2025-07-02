@@ -1,6 +1,5 @@
 group: xnli_asia
 task:
-  - xnli_ar
   - xnli_hi
   - xnli_vi
   - xnli_zh
